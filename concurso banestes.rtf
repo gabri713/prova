@@ -1,0 +1,520 @@
+{\rtf1\ansi\ansicpg1252\deff0\nouicompat\deflang1046{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Riched20 10.0.19041}\viewkind4\uc1 
+\pard\sa200\sl276\slmult1\f0\fs22\lang22 1- Escreva um programa que leia dois n\'fameros inteiros e apresente na tela sua soma, no seguinte formato:\par
+Soma de 5 com 7 = 12\par
+\par
+public class SomaInteiros \{\par
+    public static void main(String[] args) \{\par
+        // Criando um objeto Scanner para entrada de dados do usu\'e1rio\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar o primeiro n\'famero\par
+        System.out.print("Digite o primeiro n\'famero inteiro: ");\par
+        int numero1 = scanner.nextInt();\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar o segundo n\'famero\par
+        System.out.print("Digite o segundo n\'famero inteiro: ");\par
+        int numero2 = scanner.nextInt();\par
+        \par
+        // Calculando a soma dos dois n\'fameros\par
+        int soma = numero1 + numero2;\par
+        \par
+        // Exibindo a soma no formato especificado\par
+        System.out.println("Soma de " + numero1 + " com " + numero2 + " = " + soma);\par
+        \par
+        // Fechando o scanner para evitar vazamento de recursos\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+\par
+\par
+\par
+\par
+2. Escreva um programa que leia dois n\'fameros inteiros e apresente na tela sua soma apenas se ambos forem\par
+positivos. Use o mesmo formato do exerc\'edcio anterior e, caso algum dos n\'fameros fornecidos seja negativo\par
+o programa deve escrever na tela que os "Dados de Entrada s\'e3o Inv\'e1lidos".\par
+import java.util.Scanner;\par
+\par
+public class SomaPositiva \{\par
+    public static void main(String[] args) \{\par
+        // Criando um objeto Scanner para entrada de dados do usu\'e1rio\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar o primeiro n\'famero\par
+        System.out.print("Digite o primeiro n\'famero inteiro: ");\par
+        int numero1 = scanner.nextInt();\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar o segundo n\'famero\par
+        System.out.print("Digite o segundo n\'famero inteiro: ");\par
+        int numero2 = scanner.nextInt();\par
+        \par
+        // Verificando se ambos os n\'fameros s\'e3o positivos\par
+        if (numero1 > 0 && numero2 > 0) \{\par
+            // Calculando a soma dos dois n\'fameros\par
+            int soma = numero1 + numero2;\par
+            \par
+            // Exibindo a soma no formato especificado\par
+            System.out.println("Soma de " + numero1 + " com " + numero2 + " = " + soma);\par
+        \} else \{\par
+            // Caso algum dos n\'fameros fornecidos seja negativo, exibir mensagem de erro\par
+            System.out.println("Dados de entrada s\'e3o inv\'e1lidos.");\par
+        \}\par
+        \par
+        // Fechando o scanner para evitar vazamento de recursos\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+\par
+3- Escreva um programa que leia dois n\'fameros inteiros e apresente na tela sua soma apenas se ambos tiverem\par
+o mesmo sinal (positivo ou negativo). Use o mesmo formato do exerc\'edcio anterior e, caso os n\'fameros\par
+fornecidos tenham sinais trocados o programa deve escrever na tela que os "Dados de Entrada s\'e3o\par
+Inv\'e1lidos". Utilize: JOptionPane.showMessageDialog e JOptionPane.showInputDialog.Escreva um programa que leia dois n\'fameros inteiros e apresente na tela sua soma apenas se ambos tiverem\par
+o mesmo sinal (positivo ou negativo). Use o mesmo formato do exerc\'edcio anterior e, caso os n\'fameros\par
+fornecidos tenham sinais trocados o programa deve escrever na tela que os "Dados de Entrada s\'e3o\par
+Inv\'e1lidos". Utilize: JOptionPane.showMessageDialog e JOptionPane.showInputDialog.\par
+\par
+import javax.swing.JOptionPane;\par
+\par
+public class SomaMesmoSinal \{\par
+    public static void main(String[] args) \{\par
+        // Pedindo ao usu\'e1rio para digitar o primeiro n\'famero inteiro\par
+        String input1 = JOptionPane.showInputDialog(null, "Digite o primeiro n\'famero inteiro:");\par
+        int numero1 = Integer.parseInt(input1);\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar o segundo n\'famero inteiro\par
+        String input2 = JOptionPane.showInputDialog(null, "Digite o segundo n\'famero inteiro:");\par
+        int numero2 = Integer.parseInt(input2);\par
+        \par
+        // Verificando se ambos os n\'fameros t\'eam o mesmo sinal\par
+        if ((numero1 > 0 && numero2 > 0) || (numero1 < 0 && numero2 < 0)) \{\par
+            // Calculando a soma dos dois n\'fameros\par
+            int soma = numero1 + numero2;\par
+            \par
+            // Exibindo a soma no formato especificado\par
+            JOptionPane.showMessageDialog(null, "Soma de " + numero1 + " com " + numero2 + " = " + soma);\par
+        \} else if (numero1 == 0 || numero2 == 0) \{\par
+            // Se um dos n\'fameros for zero, n\'e3o s\'e3o considerados inv\'e1lidos, mas a soma ser\'e1 zero.\par
+            JOptionPane.showMessageDialog(null, "Soma de " + numero1 + " com " + numero2 + " = 0");\par
+        \} else \{\par
+            // Caso os n\'fameros fornecidos tenham sinais trocados, exibir mensagem de erro\par
+            JOptionPane.showMessageDialog(null, "Dados de entrada s\'e3o inv\'e1lidos.");\par
+        \}\par
+    \}\par
+\}\par
+\par
+4- Escreva um programa que leia tr\'eas n\'fameros reais e informe se eles constituem os lados de um tri\'e2ngulo.\par
+Em caso afirmativo, informe se o tri\'e2ngulo \'e9 equil\'e1tero, is\'f3sceles ou escaleno. Para que tr\'eas n\'fameros\par
+formem um tri\'e2ngulo deve ocorrer que a soma dos dois lados menores deve ser maior que o lado maior.\par
+Para resolver essa quest\'e3o verifique como funcionam os operadores l\'f3gicos and e or\par
+\par
+import java.util.Scanner;\par
+\par
+public class TipoTriangulo \{\par
+    public static void main(String[] args) \{\par
+        // Criando um objeto Scanner para entrada de dados do usu\'e1rio\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        // Pedindo ao usu\'e1rio para digitar os tr\'eas lados do tri\'e2ngulo\par
+        System.out.println("Digite os tr\'eas lados do tri\'e2ngulo:");\par
+        System.out.print("Lado 1: ");\par
+        double lado1 = scanner.nextDouble();\par
+        System.out.print("Lado 2: ");\par
+        double lado2 = scanner.nextDouble();\par
+        System.out.print("Lado 3: ");\par
+        double lado3 = scanner.nextDouble();\par
+        \par
+        // Verificando se os lados formam um tri\'e2ngulo\par
+        if (lado1 + lado2 > lado3 && lado1 + lado3 > lado2 && lado2 + lado3 > lado1) \{\par
+            // Verificando o tipo de tri\'e2ngulo\par
+            if (lado1 == lado2 && lado1 == lado3) \{\par
+                System.out.println("Os lados formam um tri\'e2ngulo equil\'e1tero.");\par
+            \} else if (lado1 == lado2 || lado1 == lado3 || lado2 == lado3) \{\par
+                System.out.println("Os lados formam um tri\'e2ngulo is\'f3sceles.");\par
+            \} else \{\par
+                System.out.println("Os lados formam um tri\'e2ngulo escaleno.");\par
+            \}\par
+        \} else \{\par
+            System.out.println("Os lados fornecidos n\'e3o formam um tri\'e2ngulo.");\par
+        \}\par
+        \par
+        // Fechando o scanner para evitar vazamento de recursos\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+6. Escreva um programa que permane\'e7a em la\'e7o dentro do qual ser\'e1 efetuada a leitura de um n\'famero inteiro\par
+X. O la\'e7o termina quando for digitado o valor 0 (zero) para X. Para cada valor X lido, o programa deve\par
+informar na tela se o mesmo \'e9 positivo ou negativo.\par
+\par
+import java.util.Scanner;\par
+\par
+public class VerificarPositivoNegativo \{\par
+    public static void main(String[] args) \{\par
+        // Criando um objeto Scanner para entrada de dados do usu\'e1rio\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        // Inicializando uma vari\'e1vel para armazenar o n\'famero digitado pelo usu\'e1rio\par
+        int numero;\par
+        \par
+        // La\'e7o para continuar a leitura enquanto o n\'famero digitado for diferente de zero\par
+        do \{\par
+            // Pedindo ao usu\'e1rio para digitar um n\'famero inteiro\par
+            System.out.print("Digite um n\'famero inteiro (digite 0 para sair): ");\par
+            numero = scanner.nextInt();\par
+            \par
+            // Verificando se o n\'famero \'e9 positivo, negativo ou zero\par
+            if (numero > 0) \{\par
+                System.out.println("O n\'famero digitado \'e9 positivo.");\par
+            \} else if (numero < 0) \{\par
+                System.out.println("O n\'famero digitado \'e9 negativo.");\par
+            \} else \{\par
+                System.out.println("O n\'famero digitado \'e9 zero. Encerrando o programa.");\par
+            \}\par
+        \} while (numero != 0); // O la\'e7o continua enquanto o n\'famero digitado for diferente de zero\par
+        \par
+        // Fechando o scanner para evitar vazamento de recursos\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+7. Elaborar um programa que efetue a leitura de valores positivos inteiros at\'e9 que zero ou um valor negativo\par
+seja informado. Ao final devem ser apresentados: o maior e menor valores informados pelo usu\'e1rio, a\par
+quantidade de valores, a soma e a m\'e9dia de todos.\par
+\par
+import java.util.Scanner;\par
+\par
+public class Main \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        int valor;\par
+        int maior = Integer.MIN_VALUE;\par
+        int menor = Integer.MAX_VALUE;\par
+        int soma = 0;\par
+        int quantidade = 0;\par
+        \par
+        System.out.println("Digite valores inteiros positivos (digite 0 ou um valor negativo para parar):");\par
+        \par
+        do \{\par
+            valor = scanner.nextInt();\par
+            if (valor > 0) \{\par
+                soma += valor;\par
+                quantidade++;\par
+                if (valor > maior) \{\par
+                    maior = valor;\par
+                \}\par
+                if (valor < menor) \{\par
+                    menor = valor;\par
+                \}\par
+            \}\par
+        \} while (valor > 0);\par
+        \par
+        if (quantidade > 0) \{\par
+            double media = (double) soma / quantidade;\par
+            System.out.println("Maior valor: " + maior);\par
+            System.out.println("Menor valor: " + menor);\par
+            System.out.println("Quantidade de valores: " + quantidade);\par
+            System.out.println("Soma dos valores: " + soma);\par
+            System.out.println("M\'e9dia dos valores: " + media);\par
+        \} else \{\par
+            System.out.println("Nenhum valor positivo foi inserido.");\par
+        \}\par
+        \par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+8. Escreva um programa que leia dois n\'fameros inteiros denominados Min e Max. Em seguida, inicie um la\'e7o\par
+dentro do qual ser\'e1 efetuada a leitura de um n\'famero inteiro X. O la\'e7o termina quando for digitado o valor\par
+0 (zero) para X. Dentro do la\'e7o o programa deve contar e totalizar todos os valores de X que estejam no\par
+intervalo fechado [Min, Max]. Se algum valor fora do intervalo for digitado para X, o programa deve dar a\par
+mensagem "Valor fora do intervalo [Min, Max] ignorado na totaliza\'e7\'e3o". Ap\'f3s sair do la\'e7o, deve apresentar\par
+o total e a quantidade correta de valores fornecidos. Cuidado com a possibilidade do usu\'e1rio digitar o valor\par
+Min maior que o valor Max. Se isso acontecer o programa deve avisar a situa\'e7\'e3o e invert\'ea-los.\par
+\par
+import java.util.Scanner;\par
+\par
+public class Main \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+        \par
+        System.out.println("Digite o valor de Min:");\par
+        int min = scanner.nextInt();\par
+        \par
+        System.out.println("Digite o valor de Max:");\par
+        int max = scanner.nextInt();\par
+        \par
+        if (min > max) \{\par
+            System.out.println("O valor de Min \'e9 maior que o valor de Max. Invertendo...");\par
+            int temp = min;\par
+            min = max;\par
+            max = temp;\par
+        \}\par
+        \par
+        int total = 0;\par
+        int quantidade = 0;\par
+        \par
+        System.out.println("Digite valores inteiros (digite 0 para parar):");\par
+        int x = scanner.nextInt();\par
+        while (x != 0) \{\par
+            if (x >= min && x <= max) \{\par
+                total += x;\par
+                quantidade++;\par
+            \} else \{\par
+                System.out.println("Valor fora do intervalo [" + min + ", " + max + "] ignorado na totaliza\'e7\'e3o");\par
+            \}\par
+            x = scanner.nextInt();\par
+        \}\par
+        \par
+        System.out.println("Total dos valores dentro do intervalo [" + min + ", " + max + "]: " + total);\par
+        System.out.println("Quantidade de valores dentro do intervalo [" + min + ", " + max + "]: " + quantidade);\par
+        \par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+10- Escreva um programa que leia um n\'famero N (entre 0 e 50) e em seguida leia N n\'fameros reais em um vetor\par
+A. O programa dever separar os valores lidos em A em outros dois vetores NEG e POS, o primeiro contendo\par
+somente os valores negativos e o segundo contendo os valores positivos e zero. Apresentar na tela os\par
+vetores NEG e POS e a quantidade de valores contidos em cada um\par
+\par
+mport java.util.Scanner;\par
+\par
+public class SepararNumeros \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+\par
+        System.out.print("Digite a quantidade de n\'fameros (entre 0 e 50): ");\par
+        int n = scanner.nextInt();\par
+\par
+        if (n < 0 || n > 50) \{\par
+            System.out.println("N\'famero inv\'e1lido. Por favor, digite um n\'famero entre 0 e 50.");\par
+            return;\par
+        \}\par
+\par
+        double[] vetorA = new double[n];\par
+        double[] vetorNegativo;\par
+        double[] vetorPositivo;\par
+        int countNegativo = 0;\par
+        int countPositivo = 0;\par
+\par
+        // Lendo os n\'fameros para o vetorA\par
+        for (int i = 0; i < n; i++) \{\par
+            System.out.print("Digite o n\'famero " + (i + 1) + ": ");\par
+            vetorA[i] = scanner.nextDouble();\par
+        \}\par
+\par
+        // Contando a quantidade de n\'fameros negativos e positivos\par
+        for (double num : vetorA) \{\par
+            if (num < 0) \{\par
+                countNegativo++;\par
+            \} else \{\par
+                countPositivo++;\par
+            \}\par
+        \}\par
+\par
+        // Inicializando os vetores com o tamanho correto\par
+        vetorNegativo = new double[countNegativo];\par
+        vetorPositivo = new double[countPositivo];\par
+\par
+        // Separando os n\'fameros negativos e positivos\par
+        int negIndex = 0;\par
+        int posIndex = 0;\par
+        for (double num : vetorA) \{\par
+            if (num < 0) \{\par
+                vetorNegativo[negIndex++] = num;\par
+            \} else \{\par
+                vetorPositivo[posIndex++] = num;\par
+            \}\par
+        \}\par
+\par
+        // Exibindo os vetores e suas quantidades\par
+        System.out.println("\\nValores negativos:");\par
+        for (double num : vetorNegativo) \{\par
+            System.out.print(num + " ");\par
+        \}\par
+        System.out.println("\\nQuantidade de valores negativos: " + countNegativo);\par
+\par
+        System.out.println("\\nValores positivos e zero:");\par
+        for (double num : vetorPositivo) \{\par
+            System.out.print(num + " ");\par
+        \}\par
+        System.out.println("\\nQuantidade de valores positivos e zero: " + countPositivo);\par
+\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+11- Escreva um programa que leia um n\'famero N (entre 0 e 50) e em seguida defina um vetor V preenchendo-o\par
+com N n\'fameros inteiros aleat\'f3rios (pesquise como fazer isso em Java). Exiba-o na tela. Inicie um la\'e7o no\par
+qual ser\'e1 feita a leitura de um n\'famero X. Pesquise se X est\'e1 ou n\'e3o no vetor V e caso esteja informe a\par
+posi\'e7\'e3o de cada ocorr\'eancia.\par
+\par
+import java.util.Scanner;\par
+import java.util.Random;\par
+\par
+public class PesquisaNumero \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+        Random random = new Random();\par
+\par
+        System.out.print("Digite a quantidade de n\'fameros (entre 0 e 50): ");\par
+        int n = scanner.nextInt();\par
+\par
+        if (n < 0 || n > 50) \{\par
+            System.out.println("N\'famero inv\'e1lido. Por favor, digite um n\'famero entre 0 e 50.");\par
+            return;\par
+        \}\par
+\par
+        // Definindo o vetor V e preenchendo-o com n\'fameros inteiros aleat\'f3rios\par
+        int[] vetorV = new int[n];\par
+        for (int i = 0; i < n; i++) \{\par
+            vetorV[i] = random.nextInt(101); // n\'fameros aleat\'f3rios de 0 a 100\par
+        \}\par
+\par
+        // Exibindo o vetor V\par
+        System.out.println("\\nVetor V:");\par
+        for (int num : vetorV) \{\par
+            System.out.print(num + " ");\par
+        \}\par
+        System.out.println();\par
+\par
+        // La\'e7o para pesquisar n\'fameros\par
+        while (true) \{\par
+            System.out.print("\\nDigite um n\'famero para pesquisar (ou -1 para sair): ");\par
+            int x = scanner.nextInt();\par
+\par
+            if (x == -1) \{\par
+                break; // Sai do la\'e7o se o usu\'e1rio digitar -1\par
+            \}\par
+\par
+            boolean encontrado = false;\par
+            System.out.print("O n\'famero " + x + " est\'e1 nas posi\'e7\'f5es: ");\par
+            for (int i = 0; i < n; i++) \{\par
+                if (vetorV[i] == x) \{\par
+                    System.out.print(i + " ");\par
+                    encontrado = true;\par
+                \}\par
+            \}\par
+            if (!encontrado) \{\par
+                System.out.print("N\'e3o encontrado");\par
+            \}\par
+            System.out.println();\par
+        \}\par
+\par
+        scanner.close();\par
+    \}\par
+\}import java.util.Scanner;\par
+import java.util.Random;\par
+\par
+public class PesquisaNumero \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+        Random random = new Random();\par
+\par
+        System.out.print("Digite a quantidade de n\'fameros (entre 0 e 50): ");\par
+        int n = scanner.nextInt();\par
+\par
+        if (n < 0 || n > 50) \{\par
+            System.out.println("N\'famero inv\'e1lido. Por favor, digite um n\'famero entre 0 e 50.");\par
+            return;\par
+        \}\par
+\par
+        // Definindo o vetor V e preenchendo-o com n\'fameros inteiros aleat\'f3rios\par
+        int[] vetorV = new int[n];\par
+        for (int i = 0; i < n; i++) \{\par
+            vetorV[i] = random.nextInt(101); // n\'fameros aleat\'f3rios de 0 a 100\par
+        \}\par
+\par
+        // Exibindo o vetor V\par
+        System.out.println("\\nVetor V:");\par
+        for (int num : vetorV) \{\par
+            System.out.print(num + " ");\par
+        \}\par
+        System.out.println();\par
+\par
+        // La\'e7o para pesquisar n\'fameros\par
+        while (true) \{\par
+            System.out.print("\\nDigite um n\'famero para pesquisar (ou -1 para sair): ");\par
+            int x = scanner.nextInt();\par
+\par
+            if (x == -1) \{\par
+                break; // Sai do la\'e7o se o usu\'e1rio digitar -1\par
+            \}\par
+\par
+            boolean encontrado = false;\par
+            System.out.print("O n\'famero " + x + " est\'e1 nas posi\'e7\'f5es: ");\par
+            for (int i = 0; i < n; i++) \{\par
+                if (vetorV[i] == x) \{\par
+                    System.out.print(i + " ");\par
+                    encontrado = true;\par
+                \}\par
+            \}\par
+            if (!encontrado) \{\par
+                System.out.print("N\'e3o encontrado");\par
+            \}\par
+            System.out.println();\par
+        \}\par
+\par
+        scanner.close();\par
+    \}\par
+\}\par
+\par
+10. Escreva um programa que leia um n\'famero N (entre 0 e 50) e em seguida leia N n\'fameros reais em um vetor\par
+A. O programa dever separar os valores lidos em A em outros dois vetores NEG e POS, o primeiro contendo\par
+somente os valores negativos e o segundo contendo os valores positivos e zero. Apresentar na tela os\par
+vetores NEG e POS e a quantidade de valores contidos em cada um.\par
+import java.util.Scanner;\par
+\par
+public class SepararNumeros \{\par
+    public static void main(String[] args) \{\par
+        Scanner scanner = new Scanner(System.in);\par
+\par
+        System.out.print("Digite a quantidade de n\'fameros (entre 0 e 50): ");\par
+        int N = scanner.nextInt();\par
+\par
+        if (N < 0 || N > 50) \{\par
+            System.out.println("N\'famero inv\'e1lido. Por favor, digite um n\'famero entre 0 e 50.");\par
+            return;\par
+        \}\par
+\par
+        double[] A = new double[N];\par
+        double[] NEG = new double[N];\par
+        double[] POS = new double[N];\par
+\par
+        int countNeg = 0;\par
+        int countPos = 0;\par
+\par
+        System.out.println("Digite os n\'fameros:");\par
+\par
+        for (int i = 0; i < N; i++) \{\par
+            A[i] = scanner.nextDouble();\par
+            if (A[i] < 0) \{\par
+                NEG[countNeg] = A[i];\par
+                countNeg++;\par
+            \} else \{\par
+                POS[countPos] = A[i];\par
+                countPos++;\par
+            \}\par
+        \}\par
+\par
+        System.out.println("Valores negativos:");\par
+        for (int i = 0; i < countNeg; i++) \{\par
+            System.out.print(NEG[i] + " ");\par
+        \}\par
+        System.out.println("\\nQuantidade de valores negativos: " + countNeg);\par
+\par
+        System.out.println("\\nValores positivos e zero:");\par
+        for (int i = 0; i < countPos; i++) \{\par
+            System.out.print(POS[i] + " ");\par
+        \}\par
+        System.out.println("\\nQuantidade de valores positivos e zero: " + countPos);\par
+    \}\par
+\}\par
+\par
+\par
+\par
+}
+ 
